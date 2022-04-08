@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="app">
+        <h1>MÃ HÓA - GIẢI MÃ BẰNG THUẬT TOÁN RSA</h1>
+        <ul class="list-bit">
+            <li class="title">Chọn kiểu mã hóa (bit) : </li>
+            <li id="bit-1024" class="m-bit active">1024</li>
+            <li id="bit-2048" class="m-bit">2048</li>
+            <li id="bit-4096" class="m-bit">4096</li>
+        </ul>
+        <div class="key-box">
+            <div class="a-key form">
+                <label for="">PUBLIC-KEY : </label>
+                <div class="key-text public"></div>
+            </div>
+            <div class="a-key form">
+                <label for="">PRIVATE-KEY : </label>
+                <div class="key-text private"></div>
+            </div>
+        </div>
+        <div class="in-out-box">
+            <div class="a-input form">
+                <div class="text-error"></div>
+                <label for="">INPUT : </label>
+                <textarea name="" id="text-input" rows="4"></textarea>
+            </div>
+
+            <div class="a-output form">
+                <label for="">OUTPUT : </label>
+                <textarea name="" id="text-output" rows="4"></textarea>
+            </div>
+        </div>
+
+
+        <div class="btns">
+            <button class="" id="crt-key">Create Key</button>
+            <button class="" id="Encode">Encode</button>
+            <button class="" id="Decode">Decode</button>
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

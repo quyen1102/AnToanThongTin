@@ -34,19 +34,23 @@ const encode = async (req, res, next) => {
       
       Buffer.from(data)
    )
-   console.log(typeof(encryptedData));
-   // console.log("encypted data: ", encryptedData.toString("base64"))
+   console.log(encryptedData);
+   console.log("encypted data: ", encryptedData.toString("base64"))
 
 
    res.status(200).json({
-      encryptedDataStr : encryptedData.toString("base64"),
-      encryptedData
+      encryptedDataStr : encryptedData.toString("base64"),// string
+      encryptedData// obj 
    })
 
 }
 
 const decode = async (req, res, next) => {
-   const {encryptedData, privateKey} = req.body
+   const {encryptedData, privateKey, encryptedDataStr} = req.body
+   const convertedBuffer  = Buffer.from(encryptedData).toString("base64")
+   if(convertedBuffer != encryptedDataStr) {
+      throw new Error
+   }
    const decryptedData = crypto.privateDecrypt(
       {
          key: privateKey,
@@ -55,20 +59,14 @@ const decode = async (req, res, next) => {
          oaepHash: "sha256",
       },
       Buffer.from(encryptedData)
-   )
-   console.log(typeof(Buffer.from(encryptedData)))
+      )
+   
+   // console.log(typeof(Buffer.from(encryptedData)))
+
 
    res.status(200).json(decryptedData.toString())
 
 }
-
-const codes4096 = async (req, res, next) => {
-   res.status(200).json('hello')
-
-}
-
-
-
 module.exports = {
    encode,
    decode,

@@ -9,8 +9,8 @@ const mainRouter = require('./src/router')
 
 
 
-// //middleware
-// app.use(express.static('./src/public'))
+//middleware
+app.use(express.static('./src/public'))
 app.use(express.json())
 
 app.use('/api/crypto', mainRouter)
